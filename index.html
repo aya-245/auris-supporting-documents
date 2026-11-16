@@ -1,15 +1,356 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#102e2b"><meta name="description" content="AURIS: assistive smart glasses for real-time captions, sound detection, and speaker differentiation. Project showcase and technical documentation."><title>AURIS — See Beyond Sound</title><link rel="stylesheet" href="styles.css"></head>
-<body>
-<header class="site-header"><a href="#home" class="brand" aria-label="AURIS home"><span class="brand-symbol">◉</span> AURIS<span class="brand-dot">.</span></a><nav aria-label="Main navigation"><a href="#about">About</a><a href="#architecture">System</a><a href="#results">Results</a><a href="#resources">Resources</a></nav><a class="header-action" href="#resources">Explore project <span aria-hidden="true">↗</span></a></header>
-<main>
-<section class="hero" id="home"><div class="hero-glow"></div><div class="hero-inner"><div class="hero-copy"><span class="eyebrow"><span class="status-dot"></span> SAIF 2026 · PROJECT SHOWCASE</span><h1>See beyond<br><em>sound.</em></h1><p class="hero-lead">Assistive smart glasses bringing live captions, sound awareness, and speaker differentiation into view.</p><div class="hero-actions"><a class="btn btn-light" href="#architecture">Explore the system <span>↗</span></a><a class="btn btn-outline" href="documents/AURIS_Technical_Report.pdf" target="_blank" rel="noopener">Read technical report ↗</a></div><div class="hero-foot">AURIS · Augmented Understanding and Real-Time Interpretation System</div></div><div class="hero-visual"><div class="visual-frame"><img src="assets/auris-prototype.webp" alt="AURIS smart glasses prototype with attachable display hardware" fetchpriority="high"><span class="visual-caption">FIG. 01 — AURIS PROTOTYPE</span></div><div class="floating-label">CAPTIONS <span>●</span> SOUND ALERTS <span>●</span> SPEAKER LABELS</div></div></div></section>
-<section class="section intro" id="about"><div class="section-kicker">01 / THE IDEA</div><div class="intro-grid"><div><h2>Making conversations<br><span>more accessible.</span></h2></div><div class="intro-text"><p>AURIS is a smart assistive communication system designed to support deaf and hard-of-hearing individuals in everyday activities. Its lightweight wearable attachment works with a smartphone to display real-time speech captions directly in the user's field of view.</p><p>Alongside speech transcription, AURIS detects environmental sounds and differentiates speakers to support conversation clarity and situational awareness. Bluetooth Low Energy (BLE) connects the mobile app to the glasses.</p></div></div><div class="features"><article class="feature"><span class="feature-icon">“ ”</span><h3>Live captions</h3><p>Speech-to-text in English and Arabic, with online and offline transcription options.</p></article><article class="feature"><span class="feature-icon">◎</span><h3>Sound awareness</h3><p>Custom sound fingerprint matching combined with YAMNet classification.</p></article><article class="feature"><span class="feature-icon">◌◌</span><h3>Speaker differentiation</h3><p>Generic speaker labels help distinguish changes in conversation.</p></article></div></section>
-<section class="section architecture" id="architecture"><div class="section-kicker">02 / HOW IT WORKS</div><div class="section-heading"><div><h2>One connected<br><span>assistive system.</span></h2><p>From captured audio to visual information on the wearable display.</p></div><span class="micro-label">SYSTEM ARCHITECTURE</span></div><figure class="diagram-card"><img src="assets/system-architecture.webp" alt="AURIS overall system flowchart showing audio capture, speech and sound processing, mobile app, BLE and OLED output" loading="lazy"><figcaption>Figure 1. Overall system flowchart — from the AURIS technical report.</figcaption></figure><div class="architecture-grid"><div><span class="small-num">01</span><h3>Capture & process</h3><p>The mobile application receives audio for transcription and sound-event analysis.</p></div><div><span class="small-num">02</span><h3>Interpret & label</h3><p>Speech recognition, speaker differentiation, and sound detection produce readable outputs.</p></div><div><span class="small-num">03</span><h3>Display in view</h3><p>The app sends captions and alerts via BLE to the ESP32-S3 and OLED display.</p></div></div></section>
-<section class="section detection" id="innovation"><div class="section-kicker">03 / WHAT MAKES IT DIFFERENT</div><div class="split"><div class="split-copy"><h2>Personalized alerts.<br><span>Broader awareness.</span></h2><p>AURIS uses a hybrid environmental sound-detection approach. The system first checks for a match against user-registered sound fingerprints. If no match is found, YAMNet classifies general environmental sounds.</p><p>This combines recognition of familiar, personalized alerts with broader sound-event detection.</p><div class="pill-row"><span>Custom fingerprints</span><span>YAMNet</span><span>BLE alerts</span></div></div><figure class="diagram-card smaller"><img src="assets/sound-detection.webp" alt="Hybrid sound detection flowchart showing fingerprint matching and YAMNet classification" loading="lazy"><figcaption>Figure 2. Hybrid environmental sound-detection pipeline.</figcaption></figure></div></section>
-<section class="section results" id="results"><div class="section-kicker">04 / TESTING & RESULTS</div><div class="section-heading"><div><h2>Measured in<br><span>real-world conditions.</span></h2><p>Reported outcomes from the AURIS project evaluation.</p></div></div><div class="metrics"><article><strong>90<span>%</span></strong><h3>Speech-to-text</h3><p>Reported transcription accuracy</p></article><article><strong>97<span>%</span></strong><h3>Sound detection</h3><p>Reported detection accuracy</p></article><article><strong>55<span>%</span></strong><h3>Speaker differentiation</h3><p>Reported differentiation accuracy</p></article><article><strong>1–3<span>s</span></strong><h3>Typical latency</h3><p>Reported general response time; speaker differentiation ~3–5 s</p></article></div><p class="results-note">Testing covered English and Arabic speech, varying microphone distances, quiet and moderately noisy settings, and live BLE/OLED updates. Speaker differentiation accuracy and Arabic text rendering on the OLED remain areas for improvement. These figures are project-reported results, not independently benchmarked comparisons.</p></section>
-<section class="section gallery" id="prototype"><div class="section-kicker">05 / PROTOTYPE & OPTICS</div><div class="section-heading"><div><h2>Engineered for<br><span>everyday use.</span></h2><p>A wearable attachment and compact folded optical display.</p></div></div><div class="gallery-grid"><figure><img src="assets/auris-prototype.webp" alt="AURIS glasses prototype" loading="lazy"><figcaption>Figure 3. AURIS prototype design.</figcaption></figure><figure><img src="assets/optical-design.webp" alt="AURIS optical setup showing mirror, lens and reflector" loading="lazy"><figcaption>Figure 4. Folded optical display configuration.</figcaption></figure></div></section>
-<section class="section demo" id="demo"><div class="demo-panel"><div><div class="section-kicker">06 / SEE IT IN ACTION</div><h2>AURIS in action.</h2><p>A demonstration video can be added here when it is ready. The technical report and diagrams are already available below.</p><span class="demo-pending">◷ &nbsp; Demo video coming soon</span></div><div class="demo-art" aria-hidden="true"><span>▶</span></div></div></section>
-<section class="section resources" id="resources"><div class="section-kicker">07 / SUPPORTING DOCUMENTS</div><div class="section-heading"><div><h2>Explore the<br><span>documentation.</span></h2><p>Original project materials, diagrams, and technical references.</p></div></div><div class="resource-list"><a href="documents/AURIS_Technical_Report.pdf" target="_blank" rel="noopener"><span class="resource-icon">PDF</span><span><strong>Full technical report</strong><small>System design, methodology, evaluation, limitations & references</small></span><span class="resource-arrow">↗</span></a><a href="documents/AURIS_SAIF_Poster.pptx" download><span class="resource-icon">PPT</span><span><strong>SAIF project poster</strong><small>Editable PowerPoint presentation poster</small></span><span class="resource-arrow">↓</span></a><a href="assets/system-architecture.webp" target="_blank" rel="noopener"><span class="resource-icon">IMG</span><span><strong>System architecture diagram</strong><small>Overall AURIS data and processing flow</small></span><span class="resource-arrow">↗</span></a><a href="assets/sound-detection.webp" target="_blank" rel="noopener"><span class="resource-icon">IMG</span><span><strong>Hybrid sound detection flowchart</strong><small>Fingerprint matching and YAMNet classification</small></span><span class="resource-arrow">↗</span></a><a href="documents/AURIS_Technical_Report.pdf#page=50" target="_blank" rel="noopener"><span class="resource-icon">REF</span><span><strong>Research references</strong><small>Reference list in the technical report (PDF page 50)</small></span><span class="resource-arrow">↗</span></a></div></section>
-</main><footer><div class="footer-top"><span class="brand">◉ AURIS<span class="brand-dot">.</span></span><span>Technology that makes sound visible.</span></div><div class="footer-bottom"><span>Bahrain · SAIF 2026</span><a href="#home">Back to top ↑</a></div></footer>
-</body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#102e2b" />
+    <meta
+      name="description"
+      content="AURIS: assistive smart glasses for real-time captions, sound detection, and speaker differentiation. Project showcase and technical documentation."
+    />
+    <title>AURIS — See Beyond Sound</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="#home" class="brand" aria-label="AURIS home"
+        ><span class="brand-symbol">◉</span> AURIS<span class="brand-dot"
+          >.</span
+        ></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a><a href="#architecture">System</a
+        ><a href="#results">Results</a><a href="#resources">Resources</a>
+      </nav>
+      <a class="header-action" href="#resources"
+        >Explore project <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-glow"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow"
+              ><span class="status-dot"></span> SAIF 2026 · PROJECT
+              SHOWCASE</span
+            >
+            <h1>See beyond<br /><em>sound.</em></h1>
+            <p class="hero-lead">
+              Assistive smart glasses bringing live captions, sound awareness,
+              and speaker differentiation into view.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-light" href="#architecture"
+                >Explore the system <span>↗</span></a
+              ><a
+                class="btn btn-outline"
+                href="documents/AURIS_Technical_Report.pdf"
+                target="_blank"
+                rel="noopener"
+                >Read technical report ↗</a
+              >
+            </div>
+            <div class="hero-foot">
+              AURIS · Augmented Understanding and Real-Time Interpretation
+              System
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="visual-frame">
+              <img
+                src="assets/auris-prototype.webp"
+                alt="AURIS smart glasses prototype with attachable display hardware"
+                fetchpriority="high"
+              /><span class="visual-caption">FIG. 01 — AURIS PROTOTYPE</span>
+            </div>
+            <div class="floating-label">
+              CAPTIONS <span>●</span> SOUND ALERTS <span>●</span> SPEAKER LABELS
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section intro" id="about">
+        <div class="section-kicker">01 / THE IDEA</div>
+        <div class="intro-grid">
+          <div>
+            <h2>Making conversations<br /><span>more accessible.</span></h2>
+          </div>
+          <div class="intro-text">
+            <p>
+              AURIS is a smart assistive communication system designed to
+              support deaf and hard-of-hearing individuals in everyday
+              activities. Its lightweight wearable attachment works with a
+              smartphone to display real-time speech captions directly in the
+              user's field of view.
+            </p>
+            <p>
+              Alongside speech transcription, AURIS detects environmental sounds
+              and differentiates speakers to support conversation clarity and
+              situational awareness. Bluetooth Low Energy (BLE) connects the
+              mobile app to the glasses.
+            </p>
+          </div>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <span class="feature-icon">“ ”</span>
+            <h3>Live captions</h3>
+            <p>
+              Speech-to-text in English and Arabic, with online and offline
+              transcription options.
+            </p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">◎</span>
+            <h3>Sound awareness</h3>
+            <p>
+              Custom sound fingerprint matching combined with YAMNet
+              classification.
+            </p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">◌◌</span>
+            <h3>Speaker differentiation</h3>
+            <p>
+              Generic speaker labels help distinguish changes in conversation.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="section architecture" id="architecture">
+        <div class="section-kicker">02 / HOW IT WORKS</div>
+        <div class="section-heading">
+          <div>
+            <h2>One connected<br /><span>assistive system.</span></h2>
+            <p>
+              From captured audio to visual information on the wearable display.
+            </p>
+          </div>
+          <span class="micro-label">SYSTEM ARCHITECTURE</span>
+        </div>
+        <figure class="diagram-card">
+          <img
+            src="assets/system-architecture.webp"
+            alt="AURIS overall system flowchart showing audio capture, speech and sound processing, mobile app, BLE and OLED output"
+            loading="lazy"
+          />
+          <figcaption>
+            Figure 1. Overall system flowchart — from the AURIS technical
+            report.
+          </figcaption>
+        </figure>
+        <div class="architecture-grid">
+          <div>
+            <span class="small-num">01</span>
+            <h3>Capture & process</h3>
+            <p>
+              The mobile application receives audio for transcription and
+              sound-event analysis.
+            </p>
+          </div>
+          <div>
+            <span class="small-num">02</span>
+            <h3>Interpret & label</h3>
+            <p>
+              Speech recognition, speaker differentiation, and sound detection
+              produce readable outputs.
+            </p>
+          </div>
+          <div>
+            <span class="small-num">03</span>
+            <h3>Display in view</h3>
+            <p>
+              The app sends captions and alerts via BLE to the ESP32-S3 and OLED
+              display.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section detection" id="innovation">
+        <div class="section-kicker">03 / WHAT MAKES IT DIFFERENT</div>
+        <div class="split">
+          <div class="split-copy">
+            <h2>Personalized alerts.<br /><span>Broader awareness.</span></h2>
+            <p>
+              AURIS uses a hybrid environmental sound-detection approach. The
+              system first checks for a match against user-registered sound
+              fingerprints. If no match is found, YAMNet classifies general
+              environmental sounds.
+            </p>
+            <p>
+              This combines recognition of familiar, personalized alerts with
+              broader sound-event detection.
+            </p>
+            <div class="pill-row">
+              <span>Custom fingerprints</span><span>YAMNet</span
+              ><span>BLE alerts</span>
+            </div>
+          </div>
+          <figure class="diagram-card smaller">
+            <img
+              src="assets/sound-detection.webp"
+              alt="Hybrid sound detection flowchart showing fingerprint matching and YAMNet classification"
+              loading="lazy"
+            />
+            <figcaption>
+              Figure 2. Hybrid environmental sound-detection pipeline.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="section results" id="results">
+        <div class="section-kicker">04 / TESTING & RESULTS</div>
+        <div class="section-heading">
+          <div>
+            <h2>Measured in<br /><span>real-world conditions.</span></h2>
+            <p>Reported outcomes from the AURIS project evaluation.</p>
+          </div>
+        </div>
+        <div class="metrics">
+          <article>
+            <strong>90<span>%</span></strong>
+            <h3>Speech-to-text</h3>
+            <p>Reported transcription accuracy</p>
+          </article>
+          <article>
+            <strong>97<span>%</span></strong>
+            <h3>Sound detection</h3>
+            <p>Reported detection accuracy</p>
+          </article>
+          <article>
+            <strong>55<span>%</span></strong>
+            <h3>Speaker differentiation</h3>
+            <p>Reported differentiation accuracy</p>
+          </article>
+          <article>
+            <strong>1–3<span>s</span></strong>
+            <h3>Typical latency</h3>
+            <p>
+              Reported general response time; speaker differentiation ~3–5 s
+            </p>
+          </article>
+        </div>
+        <p class="results-note">
+          Testing covered English and Arabic speech, varying microphone
+          distances, quiet and moderately noisy settings, and live BLE/OLED
+          updates. Speaker differentiation accuracy and Arabic text rendering on
+          the OLED remain areas for improvement. These figures are
+          project-reported results, not independently benchmarked comparisons.
+        </p>
+      </section>
+      <section class="section gallery" id="prototype">
+        <div class="section-kicker">05 / PROTOTYPE & OPTICS</div>
+        <div class="section-heading">
+          <div>
+            <h2>Engineered for<br /><span>everyday use.</span></h2>
+            <p>A wearable attachment and compact folded optical display.</p>
+          </div>
+        </div>
+        <div class="gallery-grid">
+          <figure>
+            <img
+              src="assets/auris-prototype.webp"
+              alt="AURIS glasses prototype"
+              loading="lazy"
+            />
+            <figcaption>Figure 3. AURIS prototype design.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/optical-design.webp"
+              alt="AURIS optical setup showing mirror, lens and reflector"
+              loading="lazy"
+            />
+            <figcaption>
+              Figure 4. Folded optical display configuration.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="section demo" id="demo">
+        <div class="demo-panel">
+          <div>
+            <div class="section-kicker">06 / SEE IT IN ACTION</div>
+            <h2>AURIS in action.</h2>
+            <p>
+              A demonstration video can be added here when it is ready. The
+              technical report and diagrams are already available below.
+            </p>
+            <span class="demo-pending">◷ &nbsp; Demo video coming soon</span>
+          </div>
+          <div class="demo-art" aria-hidden="true"><span>▶</span></div>
+        </div>
+      </section>
+      <section class="section resources" id="resources">
+        <div class="section-kicker">07 / SUPPORTING DOCUMENTS</div>
+        <div class="section-heading">
+          <div>
+            <h2>Explore the<br /><span>documentation.</span></h2>
+            <p>
+              Original project materials, diagrams, and technical references.
+            </p>
+          </div>
+        </div>
+        <div class="resource-list">
+          <a
+            href="documents/AURIS_Technical_Report.pdf"
+            target="_blank"
+            rel="noopener"
+            ><span class="resource-icon">PDF</span
+            ><span
+              ><strong>Full technical report</strong
+              ><small
+                >System design, methodology, evaluation, limitations &
+                references</small
+              ></span
+            ><span class="resource-arrow">↗</span></a
+          ><a href="documents/AURIS_SAIF_Poster.pptx" download
+            ><span class="resource-icon">PPT</span
+            ><span
+              ><strong>SAIF project poster</strong
+              ><small>Editable PowerPoint presentation poster</small></span
+            ><span class="resource-arrow">↓</span></a
+          ><a
+            href="assets/system-architecture.webp"
+            target="_blank"
+            rel="noopener"
+            ><span class="resource-icon">IMG</span
+            ><span
+              ><strong>System architecture diagram</strong
+              ><small>Overall AURIS data and processing flow</small></span
+            ><span class="resource-arrow">↗</span></a
+          ><a href="assets/sound-detection.webp" target="_blank" rel="noopener"
+            ><span class="resource-icon">IMG</span
+            ><span
+              ><strong>Hybrid sound detection flowchart</strong
+              ><small
+                >Fingerprint matching and YAMNet classification</small
+              ></span
+            ><span class="resource-arrow">↗</span></a
+          ><a
+            href="documents/AURIS_Technical_Report.pdf#page=50"
+            target="_blank"
+            rel="noopener"
+            ><span class="resource-icon">REF</span
+            ><span
+              ><strong>Research references</strong
+              ><small
+                >Reference list in the technical report (PDF page 50)</small
+              ></span
+            ><span class="resource-arrow">↗</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-top">
+        <span class="brand">◉ AURIS<span class="brand-dot">.</span></span
+        ><span>Technology that makes sound visible.</span>
+      </div>
+      <div class="footer-bottom">
+        <span>Bahrain · SAIF 2026</span><a href="#home">Back to top ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>
